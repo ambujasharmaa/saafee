@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saafe - Your Trusted Partner</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- SVG Filters -->
+    <svg class="filters" style="visibility: hidden; position: absolute;" width="0" height="0">
+        <defs>
+            <filter id="liquid">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="3" seed="1" stitchTiles="stitch">
+                    <animate attributeName="baseFrequency" 
+                        dur="60s" 
+                        values="0.01 0.005;0.015 0.010;0.01 0.005" 
+                        repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" scale="35" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="section hero-section">
+        <div class="hero-animated-gradient"></div>
+        <div class="hero-spill-circle"></div>
+        <div class="liquid-bg"></div>
+        <div class="hero-bg-animated"></div>
+        <div class="section-content">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Streamlined Management Of All Your Finances</h1>
+                    <!-- <p class="hero-subtitle">Streamlined, Secure Management Of
+                        Your Financial
+                        Information</p> -->
+                    <p class="hero-description">Put yourself in the driver's seat of your financial information. Take control of your financial information with an unified solution. Take the stress out of managing your financial information. Step into the future of finance. Swift, secure, hassle-free.</p>
+                    <div class="hero-cta">
+                        <button class="btn btn-cta btn-white">Get Started</button>
+                    </div>
+                </div>
+                <div class="hero-image-carousel">
+                    <div class="carousel-images">
+                        <img src="images/Frame 427322903.svg" alt="Saafe Hero 1" class="carousel-img active">
+                        <div class="carousel-img" style="flex-direction:column; gap:10px; align-items:center; justify-content:center; height:100%;">
+                            <img src="images/Frame 48097933.svg" alt="Stacked 1" style="width:90%; max-width:320px; object-fit:contain;">
+                            <img src="images/Frame 48097935.svg" alt="Stacked 2" style="width:90%; max-width:320px; object-fit:contain;">
+                            <img src="images/Frame 48097934.svg" alt="Stacked 3" style="width:90%; max-width:320px; object-fit:contain;">
+                        </div>
+                        <img src="images/Property_1_Variant3_cleaned.svg" alt="Saafe Hero 3" class="carousel-img">
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active" data-index="0"></span>
+                        <span class="carousel-dot" data-index="1"></span>
+                        <span class="carousel-dot" data-index="2"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-trusted-partners">
+                <div class="trusted-partners-heading" style="text-align:center; color:#fff; font-size:1.05rem; font-weight:500; margin-bottom:0.5rem; letter-spacing:0.02em;">Our Trusted Partners</div>
+                <div class="marquee">
+                    <div class="marquee-content">
+                        <img src="images/Slide25.webp" alt="Client 1">
+                        <img src="images/Slide26.webp" alt="Client 2">
+                        <img src="images/Slide30.webp" alt="Client 3">
+                        <img src="images/Slide32.webp" alt="Client 4">
+                        <img src="images/Slide33.webp" alt="Client 5">
+                        <img src="images/Slide34.webp" alt="Client 6">
+                        <!-- Duplicate set for seamless loop -->
+                        <img src="images/Slide25.webp" alt="Client 1">
+                        <img src="images/Slide26.webp" alt="Client 2">
+                        <img src="images/Slide30.webp" alt="Client 3">
+                        <img src="images/Slide32.webp" alt="Client 4">
+                        <img src="images/Slide33.webp" alt="Client 5">
+                        <img src="images/Slide34.webp" alt="Client 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Saafe Section -->
+    <section id="about" class="section section-alt">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>What is Saafe?</h2>
+                <!-- <p class="section-subtitle">Understanding Our Mission</p> -->
+            </div>
+            <div class="about-content">
+                <p>Saafe is an empowering one-stop solution for providing a real-time aggregated view of financial assets for individuals and businesses. This state-of-the-art API driven solution puts you in the driver seat of managing your finances and personal wealth. It connects you seamlessly and securely with multiple financial institutions (Banks & NBFCs, Mutual funds, Insurance providers), EPFO, Income tax and GSTN.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Real-time Financial Insights</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wallet"></i>
+                        <span>Unified Wealth Management</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure Data Connectivity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Whom We Serve?</h2>
+                <p class="section-subtitle">Our Service Categories</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Individuals & Businesses (Our customers)</h3>
+                    <p class="service-description">Empowers you with total ownership of your data. Provides complete visibility of your financial assets. Facilitates consent-based sharing of information with financial institutions (lenders and wealth managers).</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Financial Institutions (Our partners)</h3>
+                    <p class="service-description">On approval from our customers, we deliver comprehensive financial information of your clients (current and prospective). This enables automation of processes including credit assessment thereby reducing turn-around times for loan approval. Enable continuous monitoring of borrower's financial health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Saafe Works Section -->
+    <section id="how-it-works" class="section section-alt">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>How Saafe Works?</h2>
+                <p class="section-subtitle">Revolutionizing Financial Data Management</p>
+            </div>
+            <div class="how-it-works-content">
+                <div class="works-description">
+                    <div class="description-card">
+                        <h3>Seamless Financial Integration</h3>
+                        <p>Saafe revolutionizes the way financial data is managed and shared. Our platform connects directly with financial institutions, enabling secure and efficient data sharing while maintaining the highest standards of privacy and security.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Direct integration with financial institutions</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time data synchronization</li>
+                            <li><i class="fas fa-check-circle"></i> Secure data transmission</li>
+                            <li><i class="fas fa-check-circle"></i> User-controlled consent management</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="works-video">
+                    <div class="video-container">
+                        <video controls muted playsinline>
+                            <source src="images/VIDEO-2022-02-24-18-06-18.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Changing Solutions Section -->
+    <section id="solutions" class="section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Game Changing Solutions</h2>
+                <p class="section-subtitle">Why Choose Saafe?</p>
+            </div>
+            <div class="solutions-container">
+                <div class="solutions-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="tab1">
+                            <i class="fas fa-robot"></i>
+                            <span>No Delays</span>
+                        </button>
+                        <button class="tab-btn" data-tab="tab2">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </button>
+                        <button class="tab-btn" data-tab="tab3">
+                            <i class="fas fa-cloud"></i>
+                            <span>Consent</span>
+                        </button>
+                        <button class="tab-btn" data-tab="tab4">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Finance</span>
+                        </button>
+                        <button class="tab-btn" data-tab="tab5">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Access</span>
+                        </button>
+                        <button class="tab-btn" data-tab="tab6">
+                            <i class="fas fa-eye"></i>
+                            <span>Visibility</span>
+                        </button>
+                        <button class="tab-btn" data-tab="tab7">
+                            <i class="fas fa-sync"></i>
+                            <span>Real-time</span>
+                        </button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <h3>No more delays and paperwork</h3>
+                            <p>Reduce the time taken for loan and other credit approvals by sharing all financial asset information seamlessly and securely to the service provider thereby moving away from paperwork of legacy technology and systems.</p>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <h3>Military grade Security</h3>
+                            <p>End-to-end encryption of data flow between financial institutions and the application Financial information is kept secure at every step of the way with 256-bit base 64 encoded nonce. Saafe does not store or analyze data in our servers so it is never at risk of falling into the wrong hands.</p>
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            <h3>Secure, Consent-based sharing</h3>
+                            <p>Users can control the digital sharing of their financial information based on their consent. Grant or deny consent as you choose. You can review consents for the accounts, the tenure, frequency and the receiver of your information. You can even revoke consent to one or all bank accounts at a later stage which will rescind all consents provided to the financial institution.</p>
+                        </div>
+                        <div class="tab-pane" id="tab4">
+                            <h3>Optimize personal finance & wealth management</h3>
+                            <p>You can optimize your personal finances and enhance your wealth management by leveraging automatic real-time feeds from your Bank, Mutual Funds, Insurance, GST Identification Number and Pension Fund Regulatory and Development Authority.</p>
+                        </div>
+                        <div class="tab-pane" id="tab5">
+                            <h3>Access anytime, anywhere</h3>
+                            <p>Accessible 24x7 using our user-friendly state of the art web/mobile (both Android & IOS) application.</p>
+                        </div>
+                        <div class="tab-pane" id="tab6">
+                            <h3>Seamless, integrated visibility</h3>
+                            <p>One view of all financial information at your fingertips, seamlessly consolidated across asset classes.</p>
+                        </div>
+                        <div class="tab-pane" id="tab7">
+                            <h3>Up-to-date, real-time information</h3>
+                            <p>Your latest financial information is always up-to-date and available in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <!--
+    <section id="certifications" class="section section-alt">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Certifications</h2>
+                <p class="section-subtitle">Our Accreditations</p>
+            </div>
+            <div class="certifications-grid">
+                <div class="certification-item">
+                    <img src="images/cert1.png" alt="Certification 1">
+                    <h3>ISO 27001</h3>
+                    <p>Information Security Management</p>
+                </div>
+                <div class="certification-item">
+                    <img src="images/cert2.png" alt="Certification 2">
+                    <h3>PCI DSS</h3>
+                    <p>Payment Card Industry Security</p>
+                </div>
+                <div class="certification-item">
+                    <img src="images/cert3.png" alt="Certification 3">
+                    <h3>GDPR</h3>
+                    <p>Data Protection Compliance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Clients Marquee Section -->
+    <!--
+    <section class="clients-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Our Clients</h2>
+                <p class="section-subtitle">Trusted by Industry Leaders</p>
+            </div>
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="images/Slide25.webp" alt="Client 1">
+                    <img src="images/Slide26.webp" alt="Client 2">
+                    <img src="images/Slide30.webp" alt="Client 3">
+                    <img src="images/Slide32.webp" alt="Client 4">
+                    <img src="images/Slide33.webp" alt="Client 5">
+                    <img src="images/Slide34.webp" alt="Client 6">
+                    <!-- Duplicate set for seamless loop -->
+                    <!-- <img src="images/Slide25.webp" alt="Client 1">
+                    <img src="images/Slide26.webp" alt="Client 2">
+                    <img src="images/Slide30.webp" alt="Client 3">
+                    <img src="images/Slide32.webp" alt="Client 4">
+                    <img src="images/Slide33.webp" alt="Client 5">
+                    <img src="images/Slide34.webp" alt="Client 6"> -->
+                <!-- </div>
+            </div>
+        </div>
+    </section> -->
+
+    <main>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/backToTop.js"></script>
+    <script src="js/solutions.js"></script>
+    <!-- Three.js CDN for mesh animation -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <!-- <script src="js/mesh-hero.js"></script> -->
+</body>
+</html> 

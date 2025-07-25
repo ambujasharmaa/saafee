@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Saafe</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .custom-team-section {
+            padding: 4rem 0 2rem 0;
+            background: #f8fafc;
+        }
+        .custom-team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .custom-team-card {
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 6px 32px rgba(0,142,155,0.10), 0 1.5px 6px rgba(0,95,103,0.07);
+            padding: 2.5rem 2rem 2rem 2rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .custom-team-card:hover {
+            box-shadow: 0 16px 48px rgba(0,142,155,0.18), 0 4px 16px rgba(0,95,103,0.10);
+            transform: translateY(-8px) scale(1.035);
+        }
+        .custom-team-photo {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 2px 12px rgba(0,142,155,0.10);
+            background: #f5f5f5;
+            transition: box-shadow 0.3s, border 0.3s;
+            flex-shrink: 0;
+        }
+        .custom-team-card:hover .custom-team-photo {
+            box-shadow: 0 0 0 4px #008E9B, 0 6px 24px rgba(0,142,155,0.18);
+            border-color: #008E9B;
+        }
+        .custom-team-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .custom-team-name {
+            color: #005F67;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.5px;
+        }
+        .custom-team-position {
+            color: #008E9B;
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            margin-top: -0.3rem;
+            letter-spacing: 0.2px;
+        }
+        .custom-team-desc {
+            color: #6B7280;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .custom-team-linkedin {
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .custom-linkedin-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #e0f7fa;
+            color: #0077b5;
+            font-size: 1.5rem;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+            box-shadow: 0 2px 8px rgba(0,142,155,0.10);
+            text-decoration: none;
+        }
+        .custom-linkedin-icon:hover {
+            background: #0077b5;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(0,119,181,0.18);
+            transform: scale(1.12);
+        }
+        @media (max-width: 900px) {
+            .custom-team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .custom-team-card {
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem 0.7rem;
+                gap: 1.2rem;
+                text-align: center;
+            }
+            .custom-team-content {
+                align-items: center;
+                text-align: center;
+            }
+            .custom-team-photo {
+                margin-bottom: 1.1rem;
+                width: 90px;
+                height: 90px;
+            }
+        }
+        /* Center About Saafe hero section and make background smaller, heading big */
+        .hero-section .section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .hero-section h1.about-saafe-white {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- SVG Filters -->
+    <svg class="filters" style="visibility: hidden; position: absolute;" width="0" height="0">
+        <defs>
+            <filter id="liquid">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="3" seed="1" stitchTiles="stitch">
+                    <animate attributeName="baseFrequency" 
+                        dur="60s" 
+                        values="0.01 0.005;0.015 0.010;0.01 0.005" 
+                        repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" scale="35" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- About Hero Section -->
+    <section class="section hero-section">
+        <div class="liquid-bg"></div>
+        <div class="hero-bg-animated"></div>
+        <div class="section-content">
+            <h1 class="about-saafe-white">About Saafe</h1>
+            <p class="hero-subtitle about-saafe-white">Your Trusted Financial Data Partner</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section section-alt">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Our Story</h2>
+            </div>
+            <div class="about-story">
+                <p>At Saafe, we believe in empowering individuals and businesses with complete control over their financial information. Our journey began with a simple yet powerful vision: to revolutionize how financial data is managed, shared, and utilized in the digital age.</p>
+                <div class="story-grid">
+                    <div class="story-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Vision</h3>
+                        <p>To be the most trusted and secure open banking service provider for all stakeholders in financial services with particular focus on under-banked segments of the society.</p>
+                    </div>
+                    <div class="story-item">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Mission</h3>
+                        <p>To empower individuals and entrepreneurs to help achieve their financial goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="custom-team-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Leadership Team</h2>
+                <p class="section-subtitle">Meet our core leadership</p>
+            </div>
+            <div class="custom-team-grid">
+                <div class="custom-team-card">
+                    <!-- <img src="images/Venkatesh1.jpeg" alt="Leader 1" class="custom-team-photo"> -->
+                    <div class="custom-team-content">
+                        <div class="custom-team-name">Mr. Venkatesh Krishnamoorti</div>
+                        <div class="custom-team-position">Managing Director</div>
+                        <div class="custom-team-desc">A Chartered Accountant with over 28 years of experience in NBFC and Treasury, Banking functions, Venkatesh was with Cholamandalam Investment and Finance Company Limited for over 16 years. His various roles included Treasurer, Credit head – Capital Markets lending, Head of Operations – Stock brokerage business, Interim head – Cholamandalam AMC, Business Head – Retail Capital Market finance. He played a critical role in enabling manifold growth in Managed Assets. He has been with Cognizant Technology Solutions inc, USA for over 12 years as Assistant Treasurer, overseeing Cash Management, Foreign Exchange, Risk Management, Investment management.</div>
+                        <div class="custom-team-linkedin">
+                            <a href="https://www.linkedin.com/in/kvenkatesh26101969/" class="custom-linkedin-icon" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.8-43.7 31.1-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.4s1.2-242.1 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.6 39.7 106.6 125.2V448z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-team-card">
+                    <!-- <img src="images/Vijayan1.jpeg" alt="Leader 2" class="custom-team-photo"> -->
+                    <div class="custom-team-content">
+                        <div class="custom-team-name">Mr. Vijayan Rajasekar</div>
+                        <div class="custom-team-position">COO</div>
+                        <div class="custom-team-desc">Mr. Vijayan is a BE, MBA with more than 17 years' experience in Investment Banking, Cash Management; Payments, M&A Treasury Integration, FX Middle Office and Debt Management. Senior treasury executive with specialization in Treasury Operations, Cash Management and Global Corporate payments. Over 16 years of experience in building cash management function and FX Settlements, Vijayan has demonstrated his ability to direct strong teams in achieving results with highest level of integrity, ethics and compliance.</div>
+                        <div class="custom-team-linkedin">
+                            <a href="https://www.linkedin.com/in/vijayan-rajasekar-8840b24/" class="custom-linkedin-icon" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.8-43.7 31.1-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.4s1.2-242.1 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.6 39.7 106.6 125.2V448z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-team-card">
+                    <!-- <img src="images/Raghu1.jpeg" alt="Leader 3" class="custom-team-photo"> -->
+                    <div class="custom-team-content">
+                        <div class="custom-team-name">Mr. Raghunand Arcot</div>
+                        <div class="custom-team-position">CTO</div>
+                        <div class="custom-team-desc">Mr. Raghu is M.Sc in Information Technology, PGXPM in Business Administration and Management with over 20+ years of experience in various gamut of Information Technology and has functional knowledge in Airline Pricing, Payments and Healthcare. He specializes in the areas of Big data stack, Analytics & Infrastructure. He has worked in leadership roles in FlyNava Technologies, PayPal, Covansys. Overall, he is extremely passionate about technologies & it's possibilities, problem solving and loves sports & music.</div>
+                        <div class="custom-team-linkedin">
+                            <a href="https://www.linkedin.com/in/raghunandarcot/" class="custom-linkedin-icon" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.8-43.7 31.1-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.4s1.2-242.1 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.6 39.7 106.6 125.2V448z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-team-card">
+                    <!-- <img src="images/krishnan.webp" alt="Leader 4" class="custom-team-photo"> -->
+                    <div class="custom-team-content">
+                        <div class="custom-team-name">Mr. Krishnan</div>
+                        <div class="custom-team-position">Finance & Strategy</div>
+                        <div class="custom-team-desc">Krishnan is a CFA & a CA with over 15 years of experience working in Indian & Global multinational companies. He has extensive experience working across corporate treasuries, business finance,M&A and pricing teams. In his previous role, he headed the global FX & Risk management vertical at Cognizant. He is passionate about open banking & innovative fintech models and is an active angel investor, supporting emerging ventures .</div>
+                        <div class="custom-team-linkedin">
+                            <a href="https://www.linkedin.com/in/krishnan-pr/" class="custom-linkedin-icon" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.8-43.7 31.1-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.4s1.2-242.1 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.6 39.7 106.6 125.2V448z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/backToTop.js"></script>
+</body>
+</html> 
