@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - Saafe</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        
+        .login-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .login-form-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-color: #ffffff;
+        }
+        
+        .login-form-wrapper {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .login-logo {
+            margin-bottom: 2rem;
+        }
+        
+        .login-logo img {
+            width: 90px;
+            height: auto;
+        }
+        
+        .login-form h2 {
+            color: #000000;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .login-form p {
+            color: #6B7280;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        
+        .mobile-display {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .mobile-number {
+            color: #374151;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .mobile-number:hover {
+            color: #008E9B;
+        }
+        
+        .mobile-number.editing {
+            color: #008E9B;
+            border-bottom: 2px solid #008E9B;
+        }
+        
+        .edit-mobile {
+            color: #008E9B;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .edit-mobile:hover {
+            background: rgba(0, 142, 155, 0.1);
+        }
+        
+        .mobile-input {
+            color: #374151;
+            font-weight: 600;
+            font-size: 1rem;
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            max-width: 120px;
+        }
+        
+        .otp-section {
+            margin-bottom: 2rem;
+        }
+        
+        .otp-label {
+            color: #374151;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        
+        .otp-inputs {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .otp-input {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #374151;
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .otp-input:focus {
+            border-color: #008E9B;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 142, 155, 0.1);
+        }
+        
+        .otp-input.active {
+            border-color: #008E9B;
+            background: rgba(0, 142, 155, 0.05);
+        }
+        
+        .resend-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .timer-display {
+            color: #6B7280;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            user-select: none;
+        }
+        
+        .timer-display:hover {
+            color: #008E9B;
+        }
+        
+        .timer-display .countdown {
+            color: #6B7280;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .timer-display .seconds {
+            color: #008E9B;
+            font-weight: 700;
+        }
+        
+        .timer-display.disabled {
+            color: #9CA3AF;
+            cursor: not-allowed;
+        }
+        
+        .timer-display.disabled:hover {
+            color: #9CA3AF;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: #000000;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 0.8rem;
+            margin-top: 0.1rem;
+            width: 16px;
+            height: 16px;
+            accent-color: #008E9B;
+        }
+        
+        .checkbox-group label {
+            line-height: 1.4;
+        }
+        
+        .checkbox-group a {
+            color: #008E9B;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 14px 25px;
+            background: linear-gradient(135deg, #008E9B, #00B8C5);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 142, 155, 0.2);
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 142, 155, 0.3);
+        }
+        
+        .btn-login:disabled {
+            background: #9CA3AF;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .signup-link {
+            margin-top: 2rem;
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+        
+        .signup-link a {
+            color: #008E9B;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .signup-link a:hover {
+            color: #005F67;
+            text-decoration: underline;
+        }
+        
+        .carousel-section {
+            flex: 1;
+            background: linear-gradient(135deg, #005F67, #008E9B);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .carousel-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/final.svg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 1;
+        }
+        
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+        }
+        
+        .consent-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .consent-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .consent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #008E9B, #00B8C5);
+        }
+        
+        .consent-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+        }
+        
+        .consent-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #008E9B, #00B8C5);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 142, 155, 0.3);
+        }
+        
+        .consent-content {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .consent-title {
+            color: #1f2937;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.3px;
+        }
+        
+        .consent-details {
+            color: #6B7280;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+        
+        .carousel-heading {
+            color: #ffffff;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: -0.3px;
+        }
+        
+        .carousel-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: 0.1px;
+        }
+        
+        .saafe-copyright {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: #6B7280;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+        
+        @media (max-width: 1024px) {
+            .login-container {
+                flex-direction: column;
+            }
+            
+            .carousel-section {
+                min-height: 400px;
+            }
+            
+            .carousel-heading {
+                font-size: 1.8rem;
+            }
+            
+            .consent-cards {
+                grid-template-columns: 1fr;
+                align-items: center;
+                max-width: 400px;
+            }
+            
+            .consent-card {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .login-form-section {
+                padding: 1.5rem;
+            }
+            
+            .login-form h2 {
+                font-size: 1.5rem;
+            }
+            
+            .otp-inputs {
+                gap: 0.5rem;
+            }
+            
+            .otp-input {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .carousel-heading {
+                font-size: 1.5rem;
+            }
+            
+            .saafe-copyright {
+                left: 1.5rem;
+                bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('components/header.html')
+          .then(res => res.text())
+          .then(html => { document.getElementById('header-container').innerHTML = html; });
+      });
+    </script>
+    <div class="login-container">
+        <div class="login-form-section">
+            <div class="login-form-wrapper">
+                <div class="login-logo">
+                    <img src="images/Saafe-Registered-logo-01.png" alt="Saafe Logo">
+                </div>
+                <div class="login-form">
+                    <h2>Log in to Saafe</h2>
+                    <p>Enter the OTP sent to your mobile number</p>
+                    
+                    <div class="mobile-display">
+                        <span class="mobile-number" id="mobileDisplay">8400764444</span>
+                        <input type="text" class="mobile-input" id="mobileInput" value="8400764444" style="display: none;" maxlength="10">
+                        <button class="edit-mobile" id="editMobile">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="otp-section">
+                        <div class="otp-label">OTP</div>
+                        <div class="otp-inputs">
+                            <input type="text" class="otp-input" maxlength="1" data-index="0">
+                            <input type="text" class="otp-input" maxlength="1" data-index="1">
+                            <input type="text" class="otp-input" maxlength="1" data-index="2">
+                            <input type="text" class="otp-input" maxlength="1" data-index="3">
+                        </div>
+                        <div class="resend-section">
+                            <div class="timer-display disabled" id="resendLink">
+                                <span id="timerText">Resend in <span class="countdown" id="timer">42</span><span class="seconds">s</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agreeTerms" checked>
+                        <label for="agreeTerms">I agree to <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <button class="btn-login" id="loginBtn" disabled>Log in</button>
+                    <p class="signup-link">Don't have an account? <a href="#">Create Account</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-section">
+            <div class="carousel-content">
+                <div class="consent-cards">
+                    <div class="consent-card">
+                        <div class="consent-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="consent-content">
+                            <div class="consent-title">Transaction History</div>
+                            <div class="consent-details">01 Feb 2022 - 01 Mar 2022</div>
+                        </div>
+                    </div>
+                    <div class="consent-card">
+                        <div class="consent-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="consent-content">
+                            <div class="consent-title">Data Access</div>
+                            <div class="consent-details">Profile, Summary, Transactions</div>
+                        </div>
+                    </div>
+                    <div class="consent-card">
+                        <div class="consent-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="consent-content">
+                            <div class="consent-title">Consent Period</div>
+                            <div class="consent-details">01 Feb 2022 - 14 Aug 2024</div>
+                        </div>
+                    </div>
+                    <div class="consent-card">
+                        <div class="consent-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="consent-content">
+                            <div class="consent-title">Security Status</div>
+                            <div class="consent-details">256-bit SSL Encrypted</div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="carousel-heading">Track your consents and data sharing activity with your Saafe profile</h1>
+                <p class="carousel-subtitle">Complete visibility of your financial data sharing permissions and consent management.</p>
+            </div>
+        </div>
+    </div>
+    <div class="saafe-copyright">© Saafe 2025</div>
+
+    <script>
+        const otpInputs = document.querySelectorAll('.otp-input');
+        const loginBtn = document.getElementById('loginBtn');
+        const timerElement = document.getElementById('timer');
+        const timerText = document.getElementById('timerText');
+        const resendLink = document.getElementById('resendLink');
+        const editMobileBtn = document.getElementById('editMobile');
+        const mobileDisplay = document.getElementById('mobileDisplay');
+        const mobileInput = document.getElementById('mobileInput');
+        const termsCheckbox = document.getElementById('agreeTerms');
+        
+        let timeLeft = 42;
+        let timerInterval;
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timerText.textContent = 'Resend';
+                    resendLink.classList.remove('disabled');
+                } else {
+                    timerText.textContent = `Resend in ${timeLeft}s`;
+                }
+            }, 1000);
+        }
+        
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timeLeft = 42;
+            timerElement.textContent = timeLeft;
+            timerText.textContent = `Resend in ${timeLeft}s`;
+            resendLink.classList.add('disabled');
+            startTimer();
+        }
+        
+
+        
+        function checkOTPComplete() {
+            const otpValue = Array.from(otpInputs).map(input => input.value).join('');
+            const isComplete = otpValue.length === 4;
+            const termsAgreed = termsCheckbox.checked;
+            
+            loginBtn.disabled = !(isComplete && termsAgreed);
+        }
+        
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', function(e) {
+                const value = e.target.value.replace(/\D/g, '');
+                e.target.value = value;
+                
+                if (value && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+                
+                checkOTPComplete();
+            });
+            
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+            
+            input.addEventListener('focus', function() {
+                this.classList.add('active');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.classList.remove('active');
+            });
+        });
+        
+        termsCheckbox.addEventListener('change', checkOTPComplete);
+        
+        resendLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Resend clicked, disabled:', this.classList.contains('disabled'));
+            if (!this.classList.contains('disabled')) {
+                resetTimer();
+                console.log('OTP resent to:', mobileDisplay.textContent);
+            }
+        });
+        
+        timerText.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Timer text clicked, disabled:', resendLink.classList.contains('disabled'));
+            if (!resendLink.classList.contains('disabled')) {
+                resetTimer();
+                console.log('OTP resent to:', mobileDisplay.textContent);
+            }
+        });
+        
+        editMobileBtn.addEventListener('click', function() {
+            mobileDisplay.style.display = 'none';
+            mobileInput.style.display = 'inline';
+            mobileInput.focus();
+            mobileInput.select();
+            editMobileBtn.innerHTML = '<i class="fas fa-check"></i>';
+            editMobileBtn.style.color = '#10B981';
+        });
+        
+        mobileInput.addEventListener('blur', function() {
+            const newMobile = this.value.trim();
+            if (newMobile && /^\d{10}$/.test(newMobile)) {
+                if (newMobile !== mobileDisplay.textContent) {
+                    mobileDisplay.textContent = newMobile;
+                    this.value = newMobile;
+                    resetTimer();
+                }
+            } else {
+                this.value = mobileDisplay.textContent;
+            }
+            
+            this.style.display = 'none';
+            mobileDisplay.style.display = 'inline';
+            editMobileBtn.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+            editMobileBtn.style.color = '#008E9B';
+        });
+        
+        mobileInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                this.blur();
+            }
+        });
+        
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (!termsCheckbox.checked) {
+                alert('Please agree to Terms & Conditions and Privacy Policy');
+                return;
+            }
+            
+            const otpValue = Array.from(otpInputs).map(input => input.value).join('');
+            if (otpValue.length !== 4) {
+                alert('Please enter a valid 4-digit OTP');
+                return;
+            }
+            
+            console.log('Logging in with OTP:', otpValue);
+            alert('Login successful! Welcome to Saafe.');
+            window.location.href = 'index.html';
+        });
+        
+        startTimer();
+        otpInputs[0].focus();
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

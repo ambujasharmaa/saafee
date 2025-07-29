@@ -24,6 +24,20 @@
     </svg>
     <!-- Header Container -->
     <div id="header-container"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('components/header.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('header-container').innerHTML = html;
+            if (window.waitForHeaderAndSetup) {
+              window.waitForHeaderAndSetup();
+            } else if (window.setupDropdownMenu) {
+              window.setupDropdownMenu();
+            }
+          });
+      });
+    </script>
     <!-- Hero Section -->
     <section class="section hero-section">
         <div class="liquid-bg"></div>
@@ -86,7 +100,7 @@
                     </div>
                 </div>
                 <div class="custom-team-card">
-                    <img src="images/Venkatesh1.jpeg" alt="Advisor 5" class="custom-team-photo">
+                    <!-- <img src="images/Venkatesh1.jpeg" alt="Advisor 5" class="custom-team-photo"> -->
                     <div class="custom-team-content">
                         <div class="custom-team-name">Mr. Venkatesh Krishnamoorti</div>
                         <div class="custom-team-position">Managing Director</div>
@@ -97,7 +111,7 @@
                     </div>
                 </div>
                 <div class="custom-team-card">
-                    <img src="images/Vijayan1.jpeg" alt="Leader 2" class="custom-team-photo">
+                    <!-- <img src="images/Vijayan1.jpeg" alt="Leader 2" class="custom-team-photo"> -->
                     <div class="custom-team-content">
                         <div class="custom-team-name">Mr. Vijayan Rajasekar</div>
                         <div class="custom-team-position">COO</div>
@@ -108,7 +122,7 @@
                     </div>
                 </div>
                 <div class="custom-team-card">
-                    <img src="images/Raghu1.jpeg" alt="Leader 3" class="custom-team-photo">
+                    <!-- <img src="images/Raghu1.jpeg" alt="Leader 3" class="custom-team-photo"> -->
                     <div class="custom-team-content">
                         <div class="custom-team-name">Mr. Raghu</div>
                         <div class="custom-team-position">CTO</div>

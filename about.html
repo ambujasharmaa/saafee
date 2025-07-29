@@ -159,6 +159,20 @@
 
     <!-- Header Container -->
     <div id="header-container"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('components/header.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('header-container').innerHTML = html;
+            if (window.waitForHeaderAndSetup) {
+              window.waitForHeaderAndSetup();
+            } else if (window.setupDropdownMenu) {
+              window.setupDropdownMenu();
+            }
+          });
+      });
+    </script>
 
     <!-- About Hero Section -->
     <section class="section hero-section">

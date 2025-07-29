@@ -9,9 +9,8 @@ async function loadComponent(elementId, path) {
     }
 }
 
-// Load header and footer when the page loads
+// Load footer when the page loads (header is now inline)
 document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('header-container', '/components/header.html');
     loadComponent('footer-container', '/components/footer.html');
 });
 
@@ -266,4 +265,7 @@ function setupDropdownMenu() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', setupDropdownMenu); 
+document.addEventListener('DOMContentLoaded', () => {
+    waitForHeaderAndSetup();
+    setupDropdownMenu();
+}); 

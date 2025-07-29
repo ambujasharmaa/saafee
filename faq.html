@@ -25,6 +25,20 @@
 
     <!-- Header Container -->
     <div id="header-container"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('components/header.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('header-container').innerHTML = html;
+            if (window.waitForHeaderAndSetup) {
+              window.waitForHeaderAndSetup();
+            } else if (window.setupDropdownMenu) {
+              window.setupDropdownMenu();
+            }
+          });
+      });
+    </script>
 
     <!-- FAQ Hero Section -->
     <section class="section hero-section">
@@ -74,16 +88,6 @@
                 <div class="faq-category" data-category="general">
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>What is Saafe and how does it work?</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Saafe is a comprehensive financial data management platform that provides real-time aggregated views of your financial assets. It securely connects with multiple financial institutions, allowing you to manage and share your financial information based on your consent.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
                             <h3>What financial institutions can I connect with?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
@@ -105,6 +109,15 @@
                 <div class="faq-category" data-category="security">
                     <div class="faq-item">
                         <div class="faq-question">
+                            <h3>What is Saafe and how does it work?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Saafe is a comprehensive financial data management platform that provides real-time aggregated views of your financial assets. It securely connects with multiple financial institutions, allowing you to manage and share your financial information based on your consent.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <h3>How does Saafe ensure the security of my data?</h3>
                             <i class="fas fa-chevron-down"></i>
                         </div>
@@ -118,7 +131,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>What happens to my data when I share it?</h3>
@@ -128,20 +140,6 @@
                             <p>Your data is shared securely and only with your explicit consent. You control what information is shared, with whom, and for how long. You can revoke access at any time, and all sharing is logged for transparency.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Data Management Questions -->
-                <div class="faq-category" data-category="data">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>How often is my financial data updated?</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Saafe provides real-time updates of your financial information. As soon as there's a change in your connected accounts, it's reflected in your Saafe dashboard immediately.</p>
-                        </div>
-                    </div>
-
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>Can I control what information is shared?</h3>
@@ -155,6 +153,19 @@
                                 <li>Specify what type of information is shared</li>
                                 <li>Revoke access at any time</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Management Questions -->
+                <div class="faq-category" data-category="data">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How often is my financial data updated?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Saafe provides real-time updates of your financial information. As soon as there's a change in your connected accounts, it's reflected in your Saafe dashboard immediately.</p>
                         </div>
                     </div>
                 </div>
