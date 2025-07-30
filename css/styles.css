@@ -4498,3 +4498,118 @@ section.visible {
         font-size: 2rem;
     }
 }
+
+/* Grievance Redressal Section Styles */
+.grievance-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.grievance-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.grievance-officer,
+.grievance-escalation {
+    padding: 0;
+}
+
+.grievance-officer h3,
+.grievance-escalation h3 {
+    color: #fff !important;
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.grievance-officer h3::after,
+.grievance-escalation h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+}
+
+.officer-details,
+.rbi-details {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.officer-details p,
+.rbi-details p {
+    margin-bottom: 0.1rem;
+}
+
+.officer-details strong,
+.rbi-details strong {
+    color: #fff;
+    font-weight: var(--font-weight-semibold);
+}
+
+.officer-details a,
+.rbi-details a {
+    color: #00E5FF;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.officer-details a:hover,
+.rbi-details a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.grievance-escalation p {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design for Grievance Section */
+@media (max-width: 1024px) {
+    .grievance-content {
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .grievance-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .grievance-officer h3,
+    .grievance-escalation h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .officer-details p,
+    .rbi-details p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grievance-section {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .grievance-content {
+        padding: 0 0.75rem;
+    }
+}

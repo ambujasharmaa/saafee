@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Return - Saafe</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- SVG Filters -->
+    <svg class="filters" style="visibility: hidden; position: absolute;" width="0" height="0">
+        <defs>
+            <filter id="liquid">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="3" seed="1" stitchTiles="stitch">
+                    <animate attributeName="baseFrequency" 
+                        dur="60s" 
+                        values="0.01 0.005;0.015 0.010;0.01 0.005" 
+                        repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" scale="35" />
+            </filter>
+        </defs>
+    </svg>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('components/header.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('header-container').innerHTML = html;
+            if (window.waitForHeaderAndSetup) {
+              window.waitForHeaderAndSetup();
+            } else if (window.setupDropdownMenu) {
+              window.setupDropdownMenu();
+            }
+          });
+      });
+    </script>
+    <!-- Hero Section -->
+    <section class="section hero-section">
+        <div class="liquid-bg"></div>
+        <div class="hero-bg-animated"></div>
+        <div class="section-content">
+            <h1 class="about-saafe-white" style="margin-bottom:0.7rem;">Annual Return</h1>
+            <p class="hero-subtitle about-saafe-white">Financial Transparency and Compliance</p>
+        </div>
+    </section>
+    <!-- Annual Return Content -->
+    <section class="section section-alt">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Annual Return</h2>
+                <p class="section-subtitle">Our Financial Performance and Compliance Reports</p>
+            </div>
+            <div class="about-content">
+                <p>As a Reserve Bank of India (RBI) licensed NBFC Account Aggregator (NBFC-AA), Dashboard Account Aggregation Services Private Limited maintains transparency through annual returns and regulatory compliance.</p>
+                
+                <div class="annual-return-content">
+                    <div class="return-section">
+                        <h3>Disclosures as per Companies Act 2013</h3>
+                        <p><a href="https://saafe.in/networth/uploads/2024/05/Annual-Return-MGT_7-FY-2022-23.pdf" target="_blank">Annual Return – FORM NO.MGT-7 (FY-22-23)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer-container"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/backToTop.js"></script>
+</body>
+</html> 
