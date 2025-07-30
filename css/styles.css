@@ -557,6 +557,8 @@ h4 { font-size: 1.5rem; }
     overflow: hidden;
 }
 
+
+
 .marquee {
     width: 100%;
     overflow: hidden;
@@ -568,8 +570,22 @@ h4 { font-size: 1.5rem; }
     display: flex;
     align-items: center;
     gap: 2.5rem;
-    animation: marquee 50s linear infinite;
     width: max-content;
+    transition: transform 0.5s ease;
+    animation: marquee-scroll 30s linear infinite;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee:hover .marquee-content {
+    animation-play-state: paused;
 }
 
 .marquee-content img {
@@ -584,12 +600,16 @@ h4 { font-size: 1.5rem; }
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .marquee-content img:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important;
 }
+
+
 
 @keyframes marquee {
     0% {
@@ -2630,13 +2650,12 @@ section.visible {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
 }
-.hero-trusted-partners .marquee {
+.hero-trusted-partners .marquee-container {
     margin-top: 0.5rem;
 }
 .hero-trusted-partners .marquee-content {
     display: flex;
     gap: 1.5rem;
-    animation: marquee 50s linear infinite;
     width: max-content;
 }
 .hero-trusted-partners .marquee-content img {

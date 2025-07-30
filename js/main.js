@@ -170,6 +170,23 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Marquee auto-scroll with hover pause
+    function setupMarqueeNavigation() {
+        const marquee = document.querySelector('.marquee');
+        const marqueeContent = document.querySelector('.marquee-content');
+        
+        if (!marquee || !marqueeContent) return;
+        
+        // Pause auto-scroll when hovering over the marquee
+        marquee.addEventListener('mouseenter', () => {
+            marqueeContent.style.animationPlayState = 'paused';
+        });
+        
+        marquee.addEventListener('mouseleave', () => {
+            marqueeContent.style.animationPlayState = 'running';
+        });
+    }
     // Wait for header to be loaded (since it's dynamic)
     function waitForHeaderAndMobileMenu() {
         const mobileMenu = document.querySelector('.mobile-menu');
@@ -181,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     waitForHeaderAndMobileMenu();
+    setupMarqueeNavigation();
 });
 
 // Wait for DOM and header to be loaded
